@@ -13,7 +13,7 @@ class BringFido::CLI
     puts "the 3x8 grid of what I want to scrape"
     @bring = BringFido::Bring.parks
     @bring.each.with_index(1) do |bring, i|
-      puts "#{i}. #{bring}"
+      puts "#{i}. #{bring.name} -- #{bring.bones} -- #{bring.location} "
     end
   end
 
@@ -23,7 +23,8 @@ class BringFido::CLI
          puts "Where do you want to bring Fido today? Pick a number or type 'list' to see a list, and lastly type 'exit' to exit"
       input = gets.strip.downcase
       if input.to_i > 0
-        puts @bring[input.to_i-1]
+        the_bring = @bring[input.to_i-1]
+        puts "#{the_bring.name} --- #{the_bring.bones} --- #{the_bring.location}"
       elsif input == "list"
         list_options
     else

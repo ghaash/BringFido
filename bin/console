@@ -10,5 +10,11 @@ require "BringFido"
 # require "pry"
 # Pry.start
 
+# puts "Hello World"
+
+require './lib/BringFido.rb'
+
+BringFido::CLI.new.call
+
 require "irb"
 IRB.start

@@ -1,5 +1,7 @@
 require_relative "./BringFido/version"
 
-module BringFido
+#module BringFido
   # Your code goes here...
-end
+#end
+
+require_relative './BringFido/CLI'

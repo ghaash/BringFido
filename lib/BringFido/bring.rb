@@ -10,7 +10,24 @@ end
 
 def self.scrape_parks
     puts "oh look at these pawsome parks!"
+    parks = []
+   parks << self.scrape_bringfido
+   parks
+end
 
+def self.scrape_bringfido
+
+  
+  doc = Nokogiri::HTML(open("https://www.bringfido.com/attraction/parks/"))
+
+  parks = self.new
+  parks.name = doc.search("h1").text
+#  price = doc.search("price ng-binding ng-scope.").text
+#binding.pry
+parks
+end
+
+end
 #    park_1 = self.new
 #    park_1.name = "Grape Street Dog Park"
 #    park_1.bones = "5 bones!"
@@ -30,6 +47,3 @@ def self.scrape_parks
 #    park_3.url = "https://www.bringfido.com/attraction/parks/ "
 
 #    [park_1, park_2, park_3]
-  end
-
-end

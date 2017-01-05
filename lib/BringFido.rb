@@ -1,3 +1,8 @@
+require 'nokogiri'
+require 'open-uri'
+
+require 'pry'
+
 require_relative "./BringFido/version"
 
 #module BringFido

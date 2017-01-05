@@ -23,3 +23,6 @@ profit
 started bin for the cli under bin/cli-dog-app, puts hello world to test if it works, runs!
 
 notes will also be added through commits
+
+added 7:17 pm, 5ish hours after starting on jan 4th, 2016
+i've realized that maybe the front page of bringfido.com isn't scrapable enough for what I need, I'll go with dog parks to scrape, each clickable picture, has a name, place, # of reviews, and rating

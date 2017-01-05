@@ -1,5 +1,7 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env bash
 
-puts "Don't forget your doggo"
+#puts "Don't forget your doggo"
+
+require './lib/BringFido'
 
 BringFido::CLI.new.call

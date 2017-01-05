@@ -11,7 +11,7 @@ class BringFido::CLI
 
   def list_options
     puts "the 3x8 grid of what I want to scrape"
-  #  @bring = BringFido::bring.all
+    @bring = BringFido::Bring.parks
   end
 
   def menu

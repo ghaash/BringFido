@@ -14,19 +14,23 @@ class BringFido::CLI
   end
 
   def menu
-    puts "Where do you want to bring Fido today? Pick a number"
+    input = nil
       while input != "exit"
-        input = gets.strip
-          case input
+         puts "Where do you want to bring Fido today? Pick a number or type 'list' to see a list, and lastly type 'exit' to exit"
+      input = gets.strip
+        case input
           when "1"
             puts "info on 1st 3x8"
           when "2"
             puts "info on 2 3x8"
-          end
+        when "list"
+          puts list_options
         end
       end
+    end
 
-      def end_menu
-        puts "You and your doggo are welcome at anytime!"
-      end
+  def end_menu
+    puts "You and your doggo are welcome any time!"
+  end
+
 end

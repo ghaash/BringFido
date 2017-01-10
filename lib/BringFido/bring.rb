@@ -25,9 +25,12 @@ def self.scrape_bringfido
   ##object_846 > div.info-ctn > div.info > h1 > a
 #  price = doc.search("price ng-binding ng-scope.").text
 #parks.name = doc.search("div#info h1 a")
-#doc.xpath(“//div[@class='info-ctn']/div[@class='info']/h1/a”).text
-#doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='subtitle']/a").text
-#doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='bones']/a").text
+#name = doc.xpath(“//div[@class='info-ctn']/div[@class='info']/h1/a”).text
+#location = doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='subtitle']/a").text
+# NO GOOD :doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='bones']/a").text
+#
+
+# //div[@class='info-ctn']/div[@class='overlay-info']/div[@class='description']/@text
 binding.pry
 #parks
 end

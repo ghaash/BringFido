@@ -17,14 +17,19 @@ end
 
 def self.scrape_bringfido
 
-  
+
   doc = Nokogiri::HTML(open("https://www.bringfido.com/attraction/parks/"))
 
-  parks = self.new
-  parks.name = doc.search("h1").text
+#  parks = self.new
+  #parks.name = doc.search("h6.ng-binding").text
+  ##object_846 > div.info-ctn > div.info > h1 > a
 #  price = doc.search("price ng-binding ng-scope.").text
-#binding.pry
-parks
+#parks.name = doc.search("div#info h1 a")
+#doc.xpath(“//div[@class='info-ctn']/div[@class='info']/h1/a”).text
+#doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='subtitle']/a").text
+#doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='bones']/a").text
+binding.pry
+#parks
 end
 
 end

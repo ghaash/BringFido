@@ -9,33 +9,33 @@ class BringFido::Bring
 end
 
 def self.scrape_parks
-    puts "oh look at these pawsome parks!"
-    parks = []
-   parks << self.scrape_bringfido
-   parks
+  puts "oh look at these pawsome parks!"
+  parks = []
+  parks << self.scrape_bringfido
+  parks
 end
 
 def self.scrape_bringfido
-
-
-  doc = Nokogiri::HTML(open("https://www.bringfido.com/attraction/parks/"))
-
-#  parks = self.new
-  #parks.name = doc.search("h6.ng-binding").text
-  ##object_846 > div.info-ctn > div.info > h1 > a
-#  price = doc.search("price ng-binding ng-scope.").text
+doc = Nokogiri::HTML(open("https://www.bringfido.com/attraction/parks/"))
+parks = self.new
+#parks.name = doc.search("h6.ng-binding").text
+#object_846 > div.info-ctn > div.info > h1 > a
+#price = doc.search("price ng-binding ng-scope.").text
 #parks.name = doc.search("div#info h1 a")
-#name = doc.xpath(“//div[@class='info-ctn']/div[@class='info']/h1/a”).text
-#location = doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='subtitle']/a").text
-# NO GOOD :doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='bones']/a").text
-#
+parks.name = doc.xpath(“/div[@class='info-ctn']/div[@class='info']/h1/a”).text
+parks.location = doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='subtitle']/a").text
+#NO GOOD :doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='bones']/a").text
+#doc.css('div.description').value works but gives all of Nokogiri
+#park_description = doc.css('div.description').each do |t| {t.attribute("text").value}
+end
+#park_description = doc.css("div.description").select{|link| link['name'] == "text"}
 
 # //div[@class='info-ctn']/div[@class='overlay-info']/div[@class='description']/@text
-binding.pry
-#parks
+# binding.pry
+parks
 end
 
-end
+
 #    park_1 = self.new
 #    park_1.name = "Grape Street Dog Park"
 #    park_1.bones = "5 bones!"

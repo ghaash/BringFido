@@ -17,34 +17,33 @@ end
 
 def self.scrape_bringfido
 doc = Nokogiri::HTML(open("https://www.bringfido.com/attraction/parks/"))
-#binding.pry
-
 parks = self.new
+parks.name = doc.xpath("//div[@class='info-ctn']/div[@class='info']/h1/a").text
+parks.location = doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='subtitle']/a").text
+parks.description = doc.xpath("//div[@class='info-ctn']/div[@class='overlay-info']/div[@class='description character-limit']/@text").text
+parks
+end
+end
 #parks.name = doc.search(".item-title").text
 #parks.price = doc.search(".price-current").text
 #object_846 > div.info-ctn > div.info > h1 > a
 #price = doc.search("price ng-binding ng-scope.").text
 #parks.name = doc.search("div#info h1 a")
 #parks.name = doc.search("h1").text
-parks.name = doc.xpath("//div[@class='info-ctn']/div[@class='info']/h1/a").text
-parks.location = doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='subtitle']/a").text
 
-# YES #park_description = doc.css('div.description').each do |t| {t.attribute("text").value}
+
+#parks.description = doc.css('div.description').each do |description| description.attribute("text").value
 
 
 #NO GOOD :doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='bones']/a").text
 #doc.css('div.description').value works but gives all of Nokogiri
-description = doc.xpath('div.description').text
 
 
 #park_description = doc.css("div.description").select{|link| link['name'] == "text"}
 
 # //div[@class='info-ctn']/div[@class='overlay-info']/div[@class='description']/@text
 # binding.pry
-parks
 
-end
-end
 
 
 #    park_1 = self.new

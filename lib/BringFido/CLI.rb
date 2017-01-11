@@ -10,26 +10,26 @@ class BringFido::CLI
   end
 
   def list_options
-    puts "Here is a list of parks!"
+    puts "Here is a list of parks followed by their locations!"
     @bring = BringFido::Bring.parks
-    @bring.each.with_index(1) do |bring, i|
+    @bring.each.with_index(1) do |park, i|
       # binding.pry
-      puts "#{i}. #{bring.name} + #{bring.location} -- #{bring.description}"
+      puts "#{i}. #{park.name} #{park.location} #{park.description}"
     end
   end
 
   def menu
     input = nil
       while input != "exit"
-         puts "Where do you want to bring Fido today? Type 'list' to see a list, type 'exit' to exit"
+         puts "Look at all these parks! Type 'list' to see a list, type 'exit' to exit"
       input = gets.strip.downcase
       if input.to_i > 0
-        the_bring = @bring[input.to_i-1]
-        puts "#{the_bring.name} --- #{the_bring.location} --- #{the_bring.description}"
+        the_parks = @bring[input.to_i-1]
+        puts "#{the_parks.name} #{the_parks.location} #{the_parks.description}"
       elsif input == "list"
         list_options
     else
-      puts "You dont how to use a computer doggo! Go get your humane!"
+      puts "You don't how to use a computer doggo! Go get your humane!"
     end
 #        case input
 #          when "1"
@@ -44,7 +44,7 @@ class BringFido::CLI
   end
 
   def end_menu
-    puts "Make your dog happy by taking him to the park!"
+    puts "Make your dog happy, go to the park!"
   end
 
 end

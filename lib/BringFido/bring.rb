@@ -1,10 +1,10 @@
 class BringFido::Bring
 
-  attr_accessor :name, :bones, :location, :url
+attr_accessor :name, :location, :description
 
-  def self.parks
-    #this method needs to return the scraped dog parks
-    self.scrape_parks
+def self.parks
+#this method needs to return the scraped dog parks
+  self.scrape_parks
 # BringFido::ParkScraper.new("https://www.bringfido.com/attraction/parks/")
 end
 
@@ -17,22 +17,33 @@ end
 
 def self.scrape_bringfido
 doc = Nokogiri::HTML(open("https://www.bringfido.com/attraction/parks/"))
+#binding.pry
+
 parks = self.new
-#parks.name = doc.search("h6.ng-binding").text
+#parks.name = doc.search(".item-title").text
+#parks.price = doc.search(".price-current").text
 #object_846 > div.info-ctn > div.info > h1 > a
 #price = doc.search("price ng-binding ng-scope.").text
 #parks.name = doc.search("div#info h1 a")
-parks.name = doc.xpath(“/div[@class='info-ctn']/div[@class='info']/h1/a”).text
+#parks.name = doc.search("h1").text
+parks.name = doc.xpath("//div[@class='info-ctn']/div[@class='info']/h1/a").text
 parks.location = doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='subtitle']/a").text
+
+# YES #park_description = doc.css('div.description').each do |t| {t.attribute("text").value}
+
+
 #NO GOOD :doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='bones']/a").text
 #doc.css('div.description').value works but gives all of Nokogiri
-#park_description = doc.css('div.description').each do |t| {t.attribute("text").value}
-end
+description = doc.xpath('div.description').text
+
+
 #park_description = doc.css("div.description").select{|link| link['name'] == "text"}
 
 # //div[@class='info-ctn']/div[@class='overlay-info']/div[@class='description']/@text
 # binding.pry
 parks
+
+end
 end
 
 

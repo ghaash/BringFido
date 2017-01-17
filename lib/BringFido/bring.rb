@@ -9,6 +9,7 @@ def self.parks
 end
 
 def self.scrape_parks
+  puts ""
   puts "oh look at these pawsome parks!"
   parks = []
   parks << self.scrape_bringfido

@@ -33,7 +33,7 @@ class BringFido::CLI
           @bring.each do |bring|
           puts "#{bring.description}"
         end
-        
+
     else
       puts ""
       puts "You don't how to use a computer doggo! Go get your humane!"

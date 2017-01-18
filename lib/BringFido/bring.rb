@@ -2,6 +2,19 @@ class BringFido::Bring
 
 attr_accessor :name, :location, :description
 
+#@@all = []
+
+#def initialize
+#  @name = name
+#  @location = location
+#  @description =
+#@@all << self
+#end
+
+#def self.all
+#  @@all ||= scrape_parks
+#end
+
 def self.parks
 #this method needs to return the scraped dog parks
   self.scrape_parks

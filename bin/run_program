@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+#puts "Don't forget your doggo"
+
+#require './lib/BringFido.rb'
+
+require "bundler/setup"
+require "BringFido"
+
+BringFido::CLI.new.call

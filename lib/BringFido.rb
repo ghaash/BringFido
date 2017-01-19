@@ -10,6 +10,6 @@ require_relative "./BringFido/version"
 #end
 
 #no code to see here just environment file
-require_relative './BringFido/bring'
+require_relative './BringFido/scraper'
 
 require_relative './BringFido/CLI'

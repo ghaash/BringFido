@@ -1,5 +1,3 @@
-#CLI controller as in the music controller :)
-
 class BringFido::CLI
 
   def call
@@ -17,21 +15,21 @@ class BringFido::CLI
       input = gets.strip.downcase
 
       if input == "parks"
-        @bring = BringFido::Bring.parks
-        @bring.each do |bring|
-        puts "#{bring.name}"
+        @scraper = BringFido::Scraper.parks
+        @scraper.each do |parks|
+        puts "#{parks.name}"
       end
 
     elsif input == "location"
-      @bring = BringFido::Bring.parks
-      @bring.each do |bring|
-      puts "#{bring.location}"
+      @scraper = BringFido::Scraper.parks
+      @scraper.each do |parks|
+      puts "#{parks.location}"
     end
 
     elsif input == "description"
-          @bring = BringFido::Bring.parks
-          @bring.each do |bring|
-          puts "#{bring.description}"
+          @scraper = BringFido::Scraper.parks
+          @scraper.each do |parks|
+          puts "#{parks.description}"
         end
 
     else

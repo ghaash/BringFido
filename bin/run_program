@@ -1,10 +1,10 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env ruby #shebang
 
 #puts "Don't forget your doggo"
 
 #require './lib/BringFido.rb'
 
-require "bundler/setup"
-require "BringFido"
+require "bundler/setup" #external
+require_relative "../lib/BringFido" #appfiles
 
-BringFido::CLI.new.call
+BringFido::CLI.new.call #bringfido is a namespace

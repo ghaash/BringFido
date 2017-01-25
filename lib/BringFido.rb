@@ -13,3 +13,4 @@ require_relative "./BringFido/version"
 require_relative './BringFido/scraper'
 
 require_relative './BringFido/CLI'
+require_relative './BringFido/park'

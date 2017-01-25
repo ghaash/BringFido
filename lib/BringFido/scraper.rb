@@ -1,26 +1,18 @@
 class BringFido::Scraper
 
-attr_accessor :name, :location, :description
-
-def self.parks
-  self.scrape_parks
-end
-
 def self.scrape_parks
-  puts ""
-  puts "oh look at these pawsome parks!"
-  parks = []
-  parks << self.scrape_bringfido
-  parks
+doc = Nokogiri::HTML(open("https://www.bringfido.com/attraction/parks/"))
+doc.search(".object_snapshot").each do |park|
+  name = park.search("h1").text.split(/\n/).uniq.join
+  location = park.search(".subtitle").text.split(/\n/).join
+  description = park.search(".description").attr("text").value.strip
+  BringFido::Park.new(name, location, description)
+end
 end
 
-def self.scrape_bringfido
-doc = Nokogiri::HTML(open("https://www.bringfido.com/attraction/parks/"))
-parks = self.new
-parks.name = doc.xpath("//div[@class='info-ctn']/div[@class='info']/h1/a").text
-parks.location = doc.xpath("//div[@class='info-ctn']/div[@class='info']/div[@class='subtitle']/a").text
-parks.description = doc.xpath("//div[@class='info-ctn']/div[@class='overlay-info']/div[@class='description character-limit']/@text").text.gsub(/[.]/, '.
-')
-parks
+def self.scrape_more_info(input)
+  info = BringFido::Park.all[input.to_i - 1].location
+  info2 = BringFido::Park.all[input.to_i - 1].location
 end
+
 end
